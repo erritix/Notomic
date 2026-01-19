@@ -1,0 +1,35 @@
+@use "colors" as *;
+
+html {
+    background-color: $background;
+    text-align: center;
+    color: $text100;
+}
+
+body {
+    margin: 0;
+    font-family: "Inter", "Roboto", sans-serif;
+}
+
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    src:
+        local(""),
+        url("assets/fonts/InterVariable") format("ttf");
+}
+
+#app {
+    height: 100vh;
+}
+
+.text {
+    &-label {
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.06rem;
+        text-transform: uppercase;
+        color: $text300;
+    }
+}
