@@ -1,35 +1,42 @@
 <script lang="ts">
     import * as lu from "@lucide/svelte"
-    let {
-        folder = "Folder"
-    } = $props()
+    import * as rt from "#rt"
+    import WindowOption from "@/components/windowOption.svelte";
+
+    // let {
+    //     folder = "Folder"
+    // } = $props()
+    
 </script>   
 
 <div class="titlebar">
-    <div class="contents">
+    <div class="content">
         <div class="title">
-            <span class="title-secondary">{folder}</span>
+            <span class="title-secondary">Folder</span>
             <span class="title-secondary">/</span>
-            <span>Note Title</span>
+            <span class="text200">Note</span>
         </div>
     </div>
     <div class="windowOptions">
-        <lu.Icon/>
+        <WindowOption Icon={lu.Minus} onclick={rt.WindowMinimise}/>
+        <WindowOption Icon={lu.Square} onclick={rt.WindowToggleMaximise} />
+        <WindowOption Icon={lu.X} withWarn />
     </div>
 </div>
 
 <style lang="scss">
-    @use "./../styles/colors" as *;
+    @use "../styles/colors" as *;
+
     
     .titlebar {
         display: flex;
         flex-direction: row;
-        align-items: center;
+        align-items: stretch;
         justify-content: space-between;
         background-color: $background200;
     }
     
-    .contents {
+    .content {
         display: flex;
         align-items: center;
         padding: 0 15px;
@@ -45,6 +52,9 @@
     }
 
     .windowOptions {
-        padding: 8px 32px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 0 32px;
     }
 </style>

@@ -32,4 +32,41 @@ body {
         text-transform: uppercase;
         color: $text300;
     }
+
+    &100,
+    &-strong {
+        color: $text100;
+    }
+    &200,
+    &-default {
+        color: $text200;
+    }
+    &300,
+    &-muted {
+        color: $text300;
+    }
+}
+
+.icon,
+.lucide-icon {
+    $size: 16px;
+    height: $size;
+    width: $size;
+    color: $text300;
+
+    &-small {
+        $size: 14px;
+        height: $size;
+        width: $size;
+    }
+
+    .color100 {
+        color: $text100;
+    }
+    .color200 {
+        color: $text200;
+    }
+    .color300 {
+        color: $text300;
+    }
 }
