@@ -17,6 +17,7 @@
         gap: 8px;
         padding: 16px 16px;
         background-color: $background200;
+        --wails-draggable: drag;
     }
 
     .icon {

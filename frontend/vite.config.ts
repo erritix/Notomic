@@ -7,7 +7,7 @@ export default defineConfig({
     resolve: {
         alias: {
             "@": new URL("./src", import.meta.url).pathname,
-            "#wails": new URL("./wailsjs", import.meta.url).pathname,
+            "#wails": new URL("./wailsjs/go", import.meta.url).pathname,
             "#rt": new URL("./wailsjs/runtime/runtime", import.meta.url).pathname,
         },
     },

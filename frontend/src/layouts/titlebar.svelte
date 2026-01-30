@@ -2,6 +2,7 @@
     import * as lu from "@lucide/svelte"
     import * as rt from "#rt"
     import WindowOption from "@/components/windowOption.svelte";
+    import { currentPage, titlebarContentMode } from "@/store.svelte";
 
     // let {
     //     folder = "Folder"
@@ -11,11 +12,11 @@
 
 <div class="titlebar">
     <div class="content">
-        <div class="title">
-            <span class="title-secondary">Folder</span>
-            <span class="title-secondary">/</span>
-            <span class="text200">Note</span>
-        </div>
+        {#if $titlebarContentMode === 'pagePath'}
+            <span class="text-secondary">{$currentPage}</span>
+        {:else}
+            <spa>Invalid</spa>
+        {/if}
     </div>
     <div class="windowOptions">
         <WindowOption Icon={lu.Minus} onclick={rt.WindowMinimise}/>
@@ -34,27 +35,21 @@
         align-items: stretch;
         justify-content: space-between;
         background-color: $background200;
+        --wails-draggable: drag;
     }
     
     .content {
         display: flex;
         align-items: center;
         padding: 0 15px;
-    }
-
-    .title {
-        display: flex;
-        gap: 4px;
-        font-size: 14px;
-    }
-    .title-secondary {
-        color: $text300
+        --wails-draggable: no-drag;
     }
 
     .windowOptions {
         display: flex;
         align-items: center;
         gap: 4px;
-        padding: 0 32px;
+        padding: 0 16px;
+        --wails-draggable: no-drag;
     }
 </style>

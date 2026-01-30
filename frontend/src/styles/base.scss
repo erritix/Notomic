@@ -2,7 +2,6 @@
 
 html {
     background-color: $background;
-    text-align: center;
     color: $text100;
 }
 
@@ -20,11 +19,47 @@ body {
         url("assets/fonts/InterVariable") format("ttf");
 }
 
+* {
+    box-sizing: border-box;
+    user-select: none;
+    font-size: 16px;
+}
+
 #app {
+    display: grid;
+    grid-template: 42px 1fr / 300px 1fr;
+    gap: 1px 1px;
     height: 100vh;
+    width: 100vw;
+    background-color: $secondary800;
+
+    > * {
+        background: $background;
+    }
+}
+
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 32px;
+    background-color: $background;
+}
+
+.buttonReset,
+button {
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: $text100;
 }
 
 .text {
+    &-secondary {
+        font-size: 14px;
+    }
     &-label {
         font-size: 12px;
         font-weight: 600;
@@ -33,16 +68,13 @@ body {
         color: $text300;
     }
 
-    &100,
-    &-strong {
+    &100, &-strong {
         color: $text100;
     }
-    &200,
-    &-default {
+    &200, &-default {
         color: $text200;
     }
-    &300,
-    &-muted {
+    &300, &-muted {
         color: $text300;
     }
 }
@@ -52,12 +84,15 @@ body {
     $size: 16px;
     height: $size;
     width: $size;
-    color: $text300;
+    color: $text200;
 
     &-small {
         $size: 14px;
-        height: $size;
-        width: $size;
+        @extend .icon;
+    }
+    &-big {
+        $size: 20px;
+        @extend .icon;
     }
 
     .color100 {

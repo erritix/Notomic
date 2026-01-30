@@ -17,7 +17,7 @@
         "isolatedModules": true,
         "paths": {
             "@/*": ["src/*"],
-            "#wails/*": ["wailsjs/*"],
+            "#wails/*": ["wailsjs/go/*"],
             "#rt": ["wailsjs/runtime/runtime"]
         }
     },

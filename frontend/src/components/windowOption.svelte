@@ -26,9 +26,9 @@
     .windowOption {
         display: flex;
         width: auto;
-        padding: 12px 12px;
+        padding: 12px;
         transition: all 150ms ease-in-out;
-        border-radius: 8px;
+        // border-radius: 8px;
     }
     
     .windowOption:hover {

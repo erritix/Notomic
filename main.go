@@ -1,6 +1,7 @@
 package main
 
 import (
+	"Notomic/internal/markdown"
 	"embed"
 
 	"github.com/wailsapp/wails/v2"
@@ -23,10 +24,12 @@ func main() {
 		AssetServer: &assetserver.Options{
 			Assets: assets,
 		},
-		BackgroundColour: &options.RGBA{R: 27, G: 38, B: 54, A: 1},
+		BackgroundColour: &options.RGBA{R: 30, G: 30, B: 30, A: 1},
 		OnStartup:        app.startup,
+		Frameless:        true,
 		Bind: []interface{}{
 			app,
+			markdown.NewMarkdown(),
 		},
 	})
 
