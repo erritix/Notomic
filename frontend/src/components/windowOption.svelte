@@ -26,20 +26,19 @@
     .windowOption {
         display: flex;
         width: auto;
-        padding: 12px;
+        padding: 12px 16px;
         transition: all 150ms ease-in-out;
-        // border-radius: 8px;
+        
+        &:hover {
+            background-color: $secondary900;
+        }
     }
     
-    .windowOption:hover {
-        background-color: $secondary900;
-    }
     .withWarn:hover {
         background-color: $redWarn;
     }
 
     .windowOption:hover :global(.windowOptionIcon) {
         color: $text100;
-        transition: all 150ms ease-in-out;
     }
 </style>

@@ -6,9 +6,10 @@
     type Props = {
         Icon?: Component<IconProps>
         type?: "default" | "secondary"
+        isDisabled?: boolean
     } & HTMLAttributes<HTMLButtonElement>
     
-    const {Icon, type, children, ...props}: Props = $props()    
+    const {Icon, type, children, isDisabled = $bindable(false), ...props}: Props = $props()    
 </script>
 
 <button class="button" class:buttonSecondary={type === "secondary"} {...props}>
@@ -25,16 +26,29 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: 4px;
+        justify-content: center;
+        gap: 8px;
         padding: 8px 12px;
         border-radius: 8px;
         background-color: $accent;
         color: $text100;
+        transition: 150ms;
+        cursor: pointer;
         
+        &:hover {
+            opacity: 90%;
+        }
+        
+        &:active {
+            transform: scale(0.96);
+        }
+
         &Secondary {
-            background-color: $secondary900;
+            background-color: $secondary800;
         }
     }
 
-
+    :global(.buttonIcon) {
+        color: $text100
+    }
 </style>

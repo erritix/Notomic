@@ -34,7 +34,7 @@
         flex-direction: column;
         gap: 16px;
         padding: 16px 0;
-        background-color: $background200;
+        background: $background200 !important;
     }
 
     @mixin section {

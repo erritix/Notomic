@@ -15,10 +15,20 @@ type PageItemData = {
 
 type TitlebarContentMode = "pagePath"
 
+type NoteData = {
+    id: string
+    title: string
+    content: string
+    folder?: string
+    // Last Modified timestamp
+    lastModTs: number
+}
+
 export { AppTheme };
 export type {
     // x
     Pages,
     PageItemData,
     TitlebarContentMode,
+    NoteData
 };

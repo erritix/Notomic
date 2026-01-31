@@ -23,6 +23,7 @@ body {
     box-sizing: border-box;
     user-select: none;
     font-size: 16px;
+    // transition: 150ms;
 }
 
 #app {
@@ -42,22 +43,31 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0 32px;
+    padding: 24px 32px;
     background-color: $background;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
-.buttonReset,
-button {
+.resetStyle, button {
     padding: 0;
     margin: 0;
     border: none;
     outline: none;
     background-color: transparent;
     color: $text100;
+    // cursor: pointer;
 }
 
 .text {
-    &-secondary {
+    &-title {
+        font-weight: 600;
+    }
+    &-description, &-desc {
+        font-size: 14px;
+        line-height: 148%;
+    }
+    &-secondary, &-sec {
         font-size: 14px;
     }
     &-label {

@@ -21,7 +21,7 @@
     <div class="windowOptions">
         <WindowOption Icon={lu.Minus} onclick={rt.WindowMinimise}/>
         <WindowOption Icon={lu.Square} onclick={rt.WindowToggleMaximise} />
-        <WindowOption Icon={lu.X} withWarn />
+        <WindowOption Icon={lu.X} withWarn onclick={rt.Quit}/>
     </div>
 </div>
 
@@ -34,7 +34,7 @@
         flex-direction: row;
         align-items: stretch;
         justify-content: space-between;
-        background-color: $background200;
+        background: $background200 !important;
         --wails-draggable: drag;
     }
     
@@ -48,8 +48,6 @@
     .windowOptions {
         display: flex;
         align-items: center;
-        gap: 4px;
-        padding: 0 16px;
         --wails-draggable: no-drag;
     }
 </style>

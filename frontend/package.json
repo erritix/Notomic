@@ -21,5 +21,9 @@
         "preview": "vite preview",
         "check": "svelte-check --tsconfig ./tsconfig.json"
     },
-    "type": "module"
+    "type": "module",
+    "dependencies": {
+        "lorem-ipsum": "^2.0.8",
+        "uuid": "^13.0.0"
+    }
 }
