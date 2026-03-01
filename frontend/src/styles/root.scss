@@ -1,0 +1,15 @@
+@use "./colors" as *;
+
+:root {
+    --accent: #2067f4ff;
+    --primary: #4c84f8ff;
+    --primary300: #76a1f7ff;
+    --sec900: #181d24ff;
+    --sec800: #1f2635ff;
+    --text100: #dae0ecff;
+    --text200: #b0b9cbff;
+    --text300: #848fa7ff;
+    --bg: #13161aff;
+    --bg200: #111317ff;
+    --redWarn: #c73a3aff;
+}

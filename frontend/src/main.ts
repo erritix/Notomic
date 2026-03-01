@@ -1,4 +1,5 @@
-import "@/styles/base.scss";
+import "@/styles/app.scss";
+import "@/styles/root.scss";
 import App from "@/App.svelte";
 import { mount } from "svelte";
 

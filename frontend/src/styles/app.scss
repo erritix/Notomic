@@ -8,6 +8,7 @@ html {
 body {
     margin: 0;
     font-family: "Inter", "Roboto", sans-serif;
+    transition: none;
 }
 
 @font-face {
@@ -23,10 +24,13 @@ body {
     box-sizing: border-box;
     user-select: none;
     font-size: 16px;
-    // transition: 150ms;
+    transition: 150ms;
+    scrollbar-color: var(--sec800) transparent;
+    scrollbar-width: thin;
 }
 
-#app {
+#app,
+.appView {
     display: grid;
     grid-template: 42px 1fr / 300px 1fr;
     gap: 1px 1px;
@@ -34,7 +38,7 @@ body {
     width: 100vw;
     background-color: $secondary800;
 
-    > * {
+    &>* {
         background: $background;
     }
 }
@@ -42,76 +46,76 @@ body {
 .pageContainer {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    // align-items: flex-start;
     padding: 24px 32px;
     background-color: $background;
-    overflow-x: hidden;
+    overflow-x: visible;
     overflow-y: auto;
 }
 
-.resetStyle, button {
+.resetStyle,
+button {
     padding: 0;
     margin: 0;
     border: none;
     outline: none;
     background-color: transparent;
     color: $text100;
-    // cursor: pointer;
+    text-decoration: none;
 }
 
 .text {
     &-title {
         font-weight: 600;
     }
-    &-description, &-desc {
+
+    &-description,
+    &-desc {
         font-size: 14px;
         line-height: 148%;
     }
-    &-secondary, &-sec {
+
+    &-secondary,
+    &-sec {
         font-size: 14px;
     }
+
     &-label {
         font-size: 12px;
         font-weight: 600;
-        letter-spacing: 0.06rem;
+        letter-spacing: 0.08rem;
         text-transform: uppercase;
         color: $text300;
     }
 
-    &100, &-strong {
+    &100,
+    &-strong {
         color: $text100;
     }
-    &200, &-default {
+
+    &200,
+    &-default {
         color: $text200;
     }
-    &300, &-muted {
+
+    &300,
+    &-muted {
         color: $text300;
     }
 }
 
 .icon,
 .lucide-icon {
-    $size: 16px;
-    height: $size;
-    width: $size;
+    --size: 16px;
+    height: var(--size);
+    width: var(--size);
     color: $text200;
 
     &-small {
-        $size: 14px;
-        @extend .icon;
-    }
-    &-big {
-        $size: 20px;
-        @extend .icon;
+        --size: 14px;
     }
 
-    .color100 {
-        color: $text100;
-    }
-    .color200 {
-        color: $text200;
-    }
-    .color300 {
-        color: $text300;
+    &-big {
+        --size: 20px;
     }
 }

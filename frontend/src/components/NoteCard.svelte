@@ -1,50 +1,66 @@
 <script lang="ts">
-    import {type NoteData} from "@/types"
-    import { Folder } from "@lucide/svelte";
-    
-    const props: NoteData = $props()
+    import { type NoteData } from "@/types";
+    import { formatTimeAgo } from "@/utils/dateFormat";
+    import { EllipsisVertical, File, FileText, Folder, StickyNote } from "@lucide/svelte";
+    import { link, navigate } from "svelte5-router";
+
+    const { data = $bindable(), ...props }: { data: NoteData } = $props();
 </script>
 
-<div class="noteCard">
+<a
+    class="noteCard resetStyle"
+    href={"/edit/" + data.id}
+    use:link
+>
+    <div class="header">
+        <File class="noteIcon icon-big" />
+        <EllipsisVertical />
+    </div>
     <div class="body">
-        <span class="text-title">{props.title}</span>
-        <p class="content text-desc">{props.content}</p>
+        <span class="text-title">{data.title}</span>
+        <!-- <p class="content text-desc">{data.content}</p> -->
     </div>
     <div class="metadata">
         <div class="folder">
-            <Folder class="folderIcon"/>
-            <span class="text-sec">{props.folder ?? 'Draft'}</span>
+            <Folder class="folderIcon" />
+            <span>{data.folder ?? "Draft"}</span>
         </div>
-        <div class="lastmTs">
-            Few hours ago
-        </div>
+        <div class="lastEdited">{formatTimeAgo(data.lastEdited)}</div>
     </div>
-</div>
+</a>
 
 <style lang="scss">
     @use "../styles/colors" as *;
 
     .noteCard {
+        appearance: none;
         flex: 0 0 auto;
         display: flex;
         flex-flow: column nowrap;
-        gap: 24px;
-        height: 280px;
+        gap: 16px;
+        height: 200px;
         width: 224px;
-        padding: 12px;
+        padding: 16px 12px;
         border: 1px solid transparent;
         border-radius: 12px;
         background-color: $secondary900;
         color: $text200;
-        transition: 150ms;
-        overflow: hidden;
+        overflow: visible;
+
+        :global(.noteIcon) {
+            --size: 20px;
+            color: $text300;
+            fill: $text300;
+        }
 
         &:hover {
             color: $text100;
             border: 1px solid $secondary800;
-        }
-        &:hover .content {
-            color: $text200
+
+            & :global(.noteIcon) {
+                color: $text200;
+                fill: $text200;
+            }
         }
 
         &:active {
@@ -52,20 +68,17 @@
         }
     }
 
+    .header {
+        display: flex;
+        justify-content: space-between;
+    }
+
     .body {
         flex: 1;
         display: flex;
         flex-flow: column nowrap;
+        gap: 8px;
         min-height: 0;
-        
-        & > .content {
-            flex: 1;
-            margin: 0;
-            color: $text300;
-            transition: 150ms;
-            overflow: hidden;
-            mask-image: linear-gradient(to bottom, black 80%, transparent);
-        }
     }
 
     .metadata {
@@ -73,18 +86,19 @@
         flex-flow: row nowrap;
         justify-content: space-between;
         color: $text300;
+        & * {
+            font-size: 14px;
+        }
 
-        > * {
-            font-size: 12px;
+        & > div {
             display: flex;
             flex-flow: row nowrap;
-            gap: 4px
+            gap: 4px;
         }
-        
+
         & :global(.folderIcon) {
             color: $text300;
             fill: $text300;
         }
     }
-    
 </style>

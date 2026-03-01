@@ -1,22 +1,24 @@
 <script lang="ts">
-    import notomicIcon from "@/assets/images/NotomicIcon@0.5.png"
+    import notomicIcon from "@/assets/images/NotomicIcon@0.5.png";
 </script>
 
 <div class="sidebarHeader">
-    <img class="icon" src={notomicIcon} alt="icon">
+    <img
+        class="icon"
+        src={notomicIcon}
+        alt="icon"
+    />
     <span class="appnName text-label">Notomic</span>
 </div>
 
 <style lang="scss">
-    @use "../styles/colors" as *;
-
     .sidebarHeader {
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: 8px;
+        gap: 12px;
         padding: 16px 16px;
-        background: $background200 !important;
+        background: var(--bg200);
         --wails-draggable: drag;
     }
 

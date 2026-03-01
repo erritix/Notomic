@@ -1,15 +1,19 @@
 {
     "name": "frontend",
     "version": "0.0.0",
+    "type": "module",
     "devDependencies": {
         "@lucide/svelte": "^0.562.0",
         "@sveltejs/vite-plugin-svelte": "^6.2.4",
         "@tsconfig/svelte": "^5.0.6",
+        "mdsvex": "^0.12.6",
         "sass": "^1.97.2",
         "sass-embedded": "^1.97.2",
         "svelte": "^5.46.4",
         "svelte-check": "^4.3.5",
         "svelte-preprocess": "^6.0.3",
+        "svelte5-milkdown-editor": "^0.0.6",
+        "svelte5-router": "^3.1.0",
         "tslib": "^2.8.1",
         "typescript": "^5.9.3",
         "vite": "^7.3.1"
@@ -20,10 +24,5 @@
         "build": "vite build",
         "preview": "vite preview",
         "check": "svelte-check --tsconfig ./tsconfig.json"
-    },
-    "type": "module",
-    "dependencies": {
-        "lorem-ipsum": "^2.0.8",
-        "uuid": "^13.0.0"
     }
 }

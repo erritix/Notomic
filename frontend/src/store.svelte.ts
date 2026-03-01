@@ -1,13 +1,8 @@
 import { writable } from "svelte/store";
-import { AppTheme } from "./types";
-import type { Pages, TitlebarContentMode } from "./types";
+import type { NoteData, TitlebarContentMode } from "./types";
+import { fakeNotes } from "./fakedata/note";
 
 // const theme = writable<AppTheme>(AppTheme.Dark);
-const currentPage = writable<Pages>("Library");
-const titlebarContentMode = writable<TitlebarContentMode>('pagePath')
-
-export {
-    // theme,
-    currentPage,
-    titlebarContentMode
-};
+export const headerText = writable<string>("Library");
+export const titlebarContentMode = writable<TitlebarContentMode>('pagePath')
+export const notes = writable<NoteData[]>(fakeNotes)
